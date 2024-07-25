@@ -348,7 +348,7 @@ func evaluateWithRelayProxy[T model.JsonType](provider *Provider, ctx context.Co
 		return model.GenericResolutionDetail[T]{
 			Value: defaultValue,
 			ProviderResolutionDetail: of.ProviderResolutionDetail{
-				ResolutionError: of.NewGeneralResolutionError("impossible to marshal GO Feature Flag request"),
+				ResolutionError: of.NewGeneralResolutionError("impossible to marshal GO Feature Flag request: " + err.Error()),
 				Reason:          of.ErrorReason,
 			},
 		}
@@ -359,7 +359,7 @@ func evaluateWithRelayProxy[T model.JsonType](provider *Provider, ctx context.Co
 		return model.GenericResolutionDetail[T]{
 			Value: defaultValue,
 			ProviderResolutionDetail: of.ProviderResolutionDetail{
-				ResolutionError: of.NewGeneralResolutionError("impossible to parse GO Feature Flag endpoint option"),
+				ResolutionError: of.NewGeneralResolutionError("impossible to parse GO Feature Flag endpoint option: " + err.Error()),
 				Reason:          of.ErrorReason,
 			},
 		}
@@ -375,7 +375,7 @@ func evaluateWithRelayProxy[T model.JsonType](provider *Provider, ctx context.Co
 		return model.GenericResolutionDetail[T]{
 			Value: defaultValue,
 			ProviderResolutionDetail: of.ProviderResolutionDetail{
-				ResolutionError: of.NewGeneralResolutionError("error while building GO Feature Flag relay proxy request"),
+				ResolutionError: of.NewGeneralResolutionError("error while building GO Feature Flag relay proxy request: " + err.Error()),
 				Reason:          of.ErrorReason,
 			},
 		}
@@ -390,7 +390,7 @@ func evaluateWithRelayProxy[T model.JsonType](provider *Provider, ctx context.Co
 		return model.GenericResolutionDetail[T]{
 			Value: defaultValue,
 			ProviderResolutionDetail: of.ProviderResolutionDetail{
-				ResolutionError: of.NewGeneralResolutionError("impossible to contact GO Feature Flag relay proxy instance"),
+				ResolutionError: of.NewGeneralResolutionError("impossible to contact GO Feature Flag relay proxy instance: " + err.Error()),
 				Reason:          of.ErrorReason,
 			},
 		}
@@ -400,7 +400,7 @@ func evaluateWithRelayProxy[T model.JsonType](provider *Provider, ctx context.Co
 		return model.GenericResolutionDetail[T]{
 			Value: defaultValue,
 			ProviderResolutionDetail: of.ProviderResolutionDetail{
-				ResolutionError: of.NewGeneralResolutionError("impossible to read API response from GO Feature Flag"),
+				ResolutionError: of.NewGeneralResolutionError("impossible to read API response from GO Feature Flag: " + err.Error()),
 				Reason:          of.ErrorReason,
 			},
 		}
